@@ -1,3 +1,10 @@
+<?php
+require_once '../../Usuarios/Modelo/Usuarios.php';
+require_once '../Modelo/Estudiantes.php';
+$Modelo = new Estudiantes();
+$ModeloUsuarios = new Usuarios();
+$ModeloUsuarios->validateSession();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,21 +28,30 @@
             <th>Fecha de Registro</th>
             <th>Acciones</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Diego</td>
-            <td>Palacios</td>
-            <td>123212</td>
-            <td>diego@gmail.com</td>
-            <td>Matematicas</td>
-            <td>Pedro Hernandez</td>
-            <td>95</td>
-            <td>2021/02/22</td>
-            <td>
-                <a href="edit.php" target="_blank">Editar</a>
-                <a href="delete.php" target="_blank">Eliminar</a>
-            </td>
-        </tr>
+        <?php
+        $Estudiantes = $Modelo->get();
+        if ($Estudiantes != null) {
+            foreach ($Estudiantes as $Estudiante) {
+        ?>
+                <tr>
+                    <td><?php echo $Estudiante['ID_ESTUDIANTE'] ?></td>
+                    <td><?php echo $Estudiante['NOMBRE'] ?></td>
+                    <td><?php echo $Estudiante['APELLIDO'] ?></td>
+                    <td><?php echo $Estudiante['DOCUMENTO'] ?></td>
+                    <td><?php echo $Estudiante['CORREO'] ?></td>
+                    <td><?php echo $Estudiante['MATERIA'] ?></td>
+                    <td><?php echo $Estudiante['DOCENTE'] ?></td>
+                    <td><?php echo $Estudiante['PROMEDIO'] ?></td>
+                    <td><?php echo $Estudiante['FECHA_REGISTRO'] ?></td>
+                    <td>
+                        <a href="edit.php" target="_blank">Editar</a>
+                        <a href="delete.php" target="_blank">Eliminar</a>
+                    </td>
+                </tr>
+        <?php
+            }
+        }
+        ?>
     </table>
 </body>
 
