@@ -8,7 +8,7 @@ class Estudiantes extends Conexion
     }
     public function add($Nombre, $Apellido, $Documento, $Correo, $Materia, $Docente, $Promedio, $Fecha)
     {
-        $statement = $this->db->prepare("INSERT INTO usuarios (NOMBRE, APELLIDO,DOCUMENTO,CORREO, MATERIA, DOCENTE, PROMEDIO, FECHA_REGISTRO)
+        $statement = $this->db->prepare("INSERT INTO estudiantes (NOMBRE, APELLIDO,DOCUMENTO,CORREO, MATERIA, DOCENTE, PROMEDIO, FECHA_REGISTRO)
         VALUES (:Nombre,:Apellido,:Documento,:Correo,:Materia, :Docente, :Promedio,:Fecha)");
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Apellido', $Apellido);

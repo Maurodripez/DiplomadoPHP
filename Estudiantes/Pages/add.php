@@ -15,15 +15,15 @@ $ModeloUsuarios->validateSession();
 <body>
     <h1>Registrar Estudiante</h1>
     <form method="POST" action="../Controladores/add.php">
-        Nombre <br><br>
+        Nombre <br>
         <input type="text" name="Nombre" placeholder="Nombre" required="" autocomplete="off"><br>
-        Apellido <br><br>
+        Apellido <br>
         <input type="text" name="Apellido" placeholder="Apellido" required="" autocomplete="off"><br>
-        Documento <br><br>
+        Documento <br>
         <input type="text" name="Documento" placeholder="Documento" required="" autocomplete="off"><br>
-        Correo <br><br>
+        Correo <br>
         <input type="email" name="Correo" placeholder="Correo" required="" autocomplete="off"><br>
-        Materia <br><br>
+        Materia <br>
         <select name="Materia" required="">
             <option>Seleccione</option>
             <?php
