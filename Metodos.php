@@ -9,7 +9,7 @@ class Metodos extends Conexion
     public function getMaterias()
     {
         $rows = null;
-        $statement = $this->db->prepare("SELECT * FROM estudiantes");
+        $statement = $this->db->prepare("SELECT * FROM materias");
         $statement->execute();
         while ($result = $statement->fetch()) {
             $rows[] = $result;
