@@ -1,7 +1,9 @@
 <?php
 require_once '../Modelo/Estudiantes.php';
-$ModeloEstudiantes=new Estudiantes();
-if(){
-    
+if($_POST){
+    $Modelo=new Estudiantes();
+    $Id = $_POST['Id'];
+    $Modelo->delete($Id);
+}else{
+    header('Location: ../../index.php');
 }
-?>
