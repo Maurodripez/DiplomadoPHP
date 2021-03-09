@@ -10,11 +10,16 @@ class Materias extends Conexion
     {
         $statement = $this->db->prepare("INSERT INTO materias (MATERIA) VALUES (:Materia)");
         $statement->bindParam(':Materia', $Materia);
-        if ($statement->execute()) {
-            header('Location: ../Pages/index.php');
-        } else {
-            header('Location: ../Pages/add.php');
-        }
+        $statement->execute();
+        $statement = $this->db->prepare("CREATE TABLE materias_copy LIKE materias");
+        $statement->execute();
+        $statement = $this->db->prepare("INSERT INTO materias_copy SELECT NULL,MATERIA FROM materias GROUP BY MATERIA");
+        $statement->execute();
+        $statement = $this->db->prepare("DROP TABLE materias");
+        $statement->execute();
+        $statement = $this->db->prepare("ALTER TABLE materias_copy RENAME TO materias");
+        $statement->execute();
+        header('Location: ../Pages/index.php');
     }
     public function get()
     {
