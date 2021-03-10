@@ -17,7 +17,7 @@ $InformacionEstudiante = $ModeloEstudiantes->getById($Id);
 </head>
 
 <body>
-    <h1>Registrar Estudiante</h1>
+    <h1>Editar Estudiante</h1>
     <form method="POST" action="../Controladores/edit.php">
         <input type="hidden" name="Id" value="<?php echo $Id; ?>">
         <?php

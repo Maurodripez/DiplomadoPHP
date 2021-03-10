@@ -50,7 +50,6 @@ class Estudiantes extends Conexion
     {
         $statement = $this->db->prepare("UPDATE estudiantes SET NOMBRE = :Nombre, APELLIDO=:Apellido,DOCUMENTO=:Documento,CORREO=:Correo,
         MATERIA=:Materia, DOCENTE=:Docente, PROMEDIO=:Promedio, FECHA_REGISTRO=:Fecha WHERE ID_ESTUDIANTE=:Id");
-        $statement->bindParam(':Id', $Id);
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Apellido', $Apellido);
         $statement->bindParam(':Documento', $Documento);

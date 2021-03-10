@@ -9,7 +9,7 @@ class Docentes extends Conexion
     public function add($Nombre, $Apellido, $Usuario, $Password)
     {
         $statement = $this->db->prepare("INSERT INTO usuarios(NOMBRE,APELLIDO,USUARIO,PASSWORD,ESTADO)
-    VALUES(:Nombre,:Apellido,:Usuario,:Password,'Docente',''Activo)");
+    VALUES(:Nombre,:Apellido,:Usuario,:Password,'Docente','Activo')");
         $statement->bindPAram(':Nombre', $Nombre);
         $statement->bindPAram(':Apellido', $Apellido);
         $statement->bindPAram(':Usuario', $Usuario);
@@ -41,15 +41,16 @@ class Docentes extends Conexion
         }
         return $rows;
     }
-    public function update($Id, $Nombre, $Apellido, $Usuario, $Password, $Estado)
+    public function update($Id, $Nombre, $Apellido, $Usuario, $Password, $Perfil, $Estado)
     {
         $statement = $this->db->prepare("UPDATE usuarios SET NOMBRE = :Nombre, APELLIDO=:Apellido,USUARIO=Usuario,
-        PASSWORD=:Password,ESTADO=:Estado WHERE ID_USUARIO=:Id");
-        $statement->bindParam('Id', $Id);
+        PASSWORD=:Password,PERFIL=:Perfil,ESTADO=:Estado WHERE ID_USUARIO=:Id");
+        $statement->bindParam(':Id', $Id);
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Apellido', $Apellido);
         $statement->bindParam(':Usuario', $Usuario);
         $statement->bindParam(':Password', $Password);
+        $statement->bindParam(':Perfil', $Perfil);
         $statement->bindParam(':Estado', $Estado);
         if ($statement->execute()) {
             header('Location: ../Pages/index.php');
