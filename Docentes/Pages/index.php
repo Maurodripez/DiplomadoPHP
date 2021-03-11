@@ -40,7 +40,8 @@ $ModeloDocentes = new Docentes();
                     </td>
             <?php
             }
-        } ?>
+        } 
+        ?>
                 </tr>
     </table>
 </body>

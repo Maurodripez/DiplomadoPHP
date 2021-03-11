@@ -33,7 +33,7 @@ class Administradores extends Conexion
     public function getById($Id)
     {
         $rows = null;
-        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE PERFIL = 'Administrador AND ID_USUARIO = :Id");
+        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE PERFIL = 'Administrador' AND ID_USUARIO = :Id");
         $statement->bindParam('Id', $Id);
         $statement->execute();
         while ($result = $statement->fetch()) {
@@ -43,9 +43,9 @@ class Administradores extends Conexion
     }
     public function update($Id, $Nombre, $Apellido, $Usuario, $Password, $Estado)
     {
-        $statement = $this->db->prepare("UPDATE usuarios SET NOMBRE = :Nombre, APELLIDO=:Apellido,USUARIO=Usuario,
+        $statement = $this->db->prepare("UPDATE usuarios SET NOMBRE = :Nombre, APELLIDO=:Apellido,USUARIO=:Usuario,
         PASSWORD=:Password,ESTADO=:Estado WHERE ID_USUARIO=:Id");
-        $statement->bindParam('Id', $Id);
+        $statement->bindParam(':Id', $Id);
         $statement->bindParam(':Nombre', $Nombre);
         $statement->bindParam(':Apellido', $Apellido);
         $statement->bindParam(':Usuario', $Usuario);

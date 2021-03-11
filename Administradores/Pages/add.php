@@ -1,3 +1,8 @@
+<?php
+require_once '../../Usuarios/Modelo/Usuarios.php';
+$Metodos = new Usuarios();
+$Metodos->validateSession();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +12,7 @@
 
 <body>
     <h1>Registrar Administrador</h1>
-    <form action="POST" action="../Controladores/add.php">
+    <form method="POST" action="../Controladores/add.php">
         Nombre <br>
         <input type="text" name="Nombre" placeholder="Nombre" autocomplete="off" required=""><br>
         Apellido <br>

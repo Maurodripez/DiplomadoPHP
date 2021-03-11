@@ -33,7 +33,7 @@ class Docentes extends Conexion
     public function getById($Id)
     {
         $rows = null;
-        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE Perfil='Docente' AND ID_USUARIO = :Id");
+        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE PERFIL='Docente' AND ID_USUARIO = :Id");
         $statement->bindParam('Id', $Id);
         $statement->execute();
         while ($result = $statement->fetch()) {
