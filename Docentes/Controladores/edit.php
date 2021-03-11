@@ -7,7 +7,6 @@ if ($_POST) {
     $Apellido = $_POST['Apellido'];
     $Usuario = $_POST['Usuario'];
     $Password = $_POST['Password'];
-    $Perfil = $_POST['Perfil'];
     $Estado = $_POST['Estado'];
-    $ModeloDocentes->update($Id, $Nombre, $Apellido, $Usuario, $Password, $Perfil, $Estado);
+    $ModeloDocentes->update($Id, $Nombre, $Apellido, $Usuario, $Password, $Estado);
 }
